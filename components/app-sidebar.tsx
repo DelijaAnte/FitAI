@@ -43,13 +43,13 @@ const data = {
     },
     {
       title: "AI Trener",
-      url: "/ai-trener",
+      url: "/aitrener",
       icon: Bot,
       items: [],
     },
     {
       title: "Kalorijski kalkulator",
-      url: "/kalorije",
+      url: "/prehrana",
       icon: Flame,
       items: [],
     },
