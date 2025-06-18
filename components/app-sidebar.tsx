@@ -24,7 +24,7 @@ const data = {
     {
       name: "Ante Delija",
       logo: Dumbbell,
-      plan: "Creator",
+      plan: "Kreator",
     },
   ],
   navMain: [

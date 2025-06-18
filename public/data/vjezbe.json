@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "naziv": "Čučanj",
+    "misicneSkupine": ["Noge", "Stražnjica"],
+    "slika": "/images/cucanj.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=aclHkVaku9U"
+  },
+  {
+    "id": "2",
+    "naziv": "Mrtvo dizanje",
+    "misicneSkupine": ["Leđa", "Noge", "Stražnjica"],
+    "slika": "/images/mrtvo-dizanje.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=op9kVnSso6Q"
+  },
+  {
+    "id": "3",
+    "naziv": "Bench press",
+    "misicneSkupine": ["Prsa", "Triceps", "Ramena"],
+    "slika": "/images/bench-press.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=gRVjAtPip0Y"
+  },
+  {
+    "id": "4",
+    "naziv": "Sklekovi",
+    "misicneSkupine": ["Prsa", "Triceps", "Core"],
+    "slika": "/images/sklekovi.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+  },
+  {
+    "id": "5",
+    "naziv": "Zgibovi",
+    "misicneSkupine": ["Leđa", "Biceps"],
+    "slika": "/images/zgibovi.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+  },
+  {
+    "id": "6",
+    "naziv": "Veslanje sa šipkom",
+    "misicneSkupine": ["Leđa", "Biceps"],
+    "slika": "/images/veslanje.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=vT2GjY_Umpw"
+  },
+  {
+    "id": "7",
+    "naziv": "Potisak iznad glave",
+    "misicneSkupine": ["Ramena", "Triceps"],
+    "slika": "/images/shoulder-press.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=B-aVuyhvLHU"
+  },
+  {
+    "id": "8",
+    "naziv": "Iskoraci",
+    "misicneSkupine": ["Noge", "Stražnjica"],
+    "slika": "/images/iskoraci.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
+  },
+  {
+    "id": "9",
+    "naziv": "Biceps pregib s bučicama",
+    "misicneSkupine": ["Biceps"],
+    "slika": "/images/biceps.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+  },
+  {
+    "id": "10",
+    "naziv": "Triceps ekstenzija",
+    "misicneSkupine": ["Triceps"],
+    "slika": "/images/triceps.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=nRiJVZDpdL0"
+  },
+  {
+    "id": "11",
+    "naziv": "Plank",
+    "misicneSkupine": ["Core"],
+    "slika": "/images/plank.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+  },
+  {
+    "id": "12",
+    "naziv": "Mountain climbers",
+    "misicneSkupine": ["Core", "Ramena", "Noge"],
+    "slika": "/images/mountain-climbers.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=nmwgirgXLYM"
+  },
+  {
+    "id": "13",
+    "naziv": "Trbušnjaci",
+    "misicneSkupine": ["Core"],
+    "slika": "/images/trbusnjaci.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=1fbU_MkV7NE"
+  },
+  {
+    "id": "14",
+    "naziv": "Ruski zaokreti",
+    "misicneSkupine": ["Core", "Kosi trbušni mišići"],
+    "slika": "/images/russian-twist.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+  },
+  {
+    "id": "15",
+    "naziv": "Burpees",
+    "misicneSkupine": ["Cijelo tijelo"],
+    "slika": "/images/burpees.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=TU8QYVW0gDU"
+  },
+  {
+    "id": "16",
+    "naziv": "Povlačenje na lat mašini",
+    "misicneSkupine": ["Leđa", "Biceps"],
+    "slika": "/images/lat-pulldown.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
+  },
+  {
+    "id": "17",
+    "naziv": "Leg press",
+    "misicneSkupine": ["Noge", "Stražnjica"],
+    "slika": "/images/leg-press.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
+  },
+  {
+    "id": "18",
+    "naziv": "Lateralno podizanje ruku",
+    "misicneSkupine": ["Ramena"],
+    "slika": "/images/lateral-raise.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=kDqklk1ZESo"
+  },
+  {
+    "id": "19",
+    "naziv": "Hip thrust",
+    "misicneSkupine": ["Stražnjica", "Noge"],
+    "slika": "/images/hip-thrust.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=LM8XHLYJoYs"
+  },
+  {
+    "id": "20",
+    "naziv": "Farmer's walk",
+    "misicneSkupine": ["Core", "Podlaktice", "Trap"],
+    "slika": "/images/farmers-walk.jpg",
+    "youtubeLink": "https://www.youtube.com/watch?v=6Z15_WdXmVw"
+  }
+]
