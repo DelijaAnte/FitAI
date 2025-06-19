@@ -23,7 +23,7 @@
   {
     "id": "4",
     "naziv": "Sklekovi",
-    "misicneSkupine": ["Prsa", "Triceps", "Core"],
+    "misicneSkupine": ["Prsa", "Triceps"],
     "slika": "/images/sklekovi.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
   },
