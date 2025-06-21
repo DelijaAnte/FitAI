@@ -4,7 +4,7 @@
     "naziv": "Čučanj",
     "misicneSkupine": ["Noge", "Stražnjica"],
     "slika": "/images/cucanj.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=aclHkVaku9U"
+    "youtubeLink": "https://www.youtube.com/watch?v=R1XulIr4W8o"
   },
   {
     "id": "2",
@@ -100,7 +100,7 @@
   {
     "id": "15",
     "naziv": "Burpees",
-    "misicneSkupine": ["Cijelo tijelo"],
+    "misicneSkupine": ["Kardio"],
     "slika": "/images/burpees.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=TU8QYVW0gDU"
   },
