@@ -26,8 +26,8 @@ const sections = [
   {
     src: "/aitrener4.jpg",
     alt: "AI Trener",
-    button: "Kreiraj svoj plan",
-    heading: "Tvoj osobni AI Trener",
+    button: "Kreiraj plan",
+    heading: "Tvoj AI Trener",
     href: "/aitrener",
     showButton: true,
   },

@@ -1,27 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Info, Copy, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+import PlanOptions from "../components/PlanOptions";
+import VjezbeSelector from "../components/VjezbeSelector";
+import PlanOutput from "../components/PlanOutput";
 
 interface Vjezba {
   id: string;
@@ -38,7 +29,14 @@ export default function TreningGeneratorPage() {
   const [cilj, setCilj] = useState("Snaga");
   const [plan, setPlan] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
+
+  const ciljevi = [
+    "Snaga",
+    "Hipertrofija",
+    "Izdržljivost",
+    "Gubitak masti",
+    "Opća kondicija",
+  ];
 
   useEffect(() => {
     fetch("data/vjezbe.json")
@@ -46,14 +44,10 @@ export default function TreningGeneratorPage() {
       .then((data) => setVjezbe(data));
   }, []);
 
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(plan);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
+  const toggleVjezba = (naziv: string) => {
+    setOdabraneVjezbe((prev) =>
+      prev.includes(naziv) ? prev.filter((v) => v !== naziv) : [...prev, naziv]
+    );
   };
 
   const handleSubmit = async () => {
@@ -91,20 +85,6 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
     setLoading(false);
   };
 
-  const toggleVjezba = (naziv: string) => {
-    setOdabraneVjezbe((prev) =>
-      prev.includes(naziv) ? prev.filter((v) => v !== naziv) : [...prev, naziv]
-    );
-  };
-
-  const ciljevi = [
-    "Snaga",
-    "Hipertrofija",
-    "Izdržljivost",
-    "Gubitak masti",
-    "Opća kondicija",
-  ];
-
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6">
       <Card>
@@ -114,109 +94,27 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Broj trening dana u tjednu</Label>
-              <Select
-                value={dani.toString()}
-                onValueChange={(value) => setDani(Number(value))}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Odaberi broj dana" />
-                </SelectTrigger>
-                <SelectContent>
-                  {[1, 2, 3, 4, 5, 6, 7].map((day) => (
-                    <SelectItem key={day} value={day.toString()}>
-                      {day} {day === 1 ? "dan" : "dana"}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label>Treninski cilj</Label>
-              <Select value={cilj} onValueChange={setCilj}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Odaberi cilj" />
-                </SelectTrigger>
-                <SelectContent>
-                  {ciljevi.map((goal) => (
-                    <SelectItem key={goal} value={goal}>
-                      {goal}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
+          {/* Odabir dana i cilja */}
+          <PlanOptions
+            dani={dani}
+            setDani={setDani}
+            cilj={cilj}
+            setCilj={setCilj}
+            ciljevi={ciljevi}
+          />
 
           <Separator />
 
-          <div>
-            <Label className="text-lg font-semibold mb-4 block">
-              Odaberi vježbe:
-            </Label>
-
-            {odabraneVjezbe.length < 3 && odabraneVjezbe.length > 0 && (
-              <Alert variant="default" className="mb-4">
-                <Info className="h-4 w-4" />
-                <AlertDescription>
-                  Preporučamo odabir minimalno 3 vježbe za kvalitetniji trening
-                  plan.
-                </AlertDescription>
-              </Alert>
-            )}
-
-            <ScrollArea className="h-[300px] rounded-md border p-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                {vjezbe.length > 0 ? (
-                  vjezbe.map((vjezba) => (
-                    <Button
-                      key={vjezba.id}
-                      variant={
-                        odabraneVjezbe.includes(vjezba.naziv)
-                          ? "default"
-                          : "outline"
-                      }
-                      onClick={() => toggleVjezba(vjezba.naziv)}
-                      className="justify-start truncate"
-                    >
-                      {vjezba.naziv}
-                    </Button>
-                  ))
-                ) : (
-                  <div className="space-y-2 col-span-3">
-                    {[...Array(12)].map((_, i) => (
-                      <Skeleton key={i} className="h-10 w-full" />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </ScrollArea>
-
-            {odabraneVjezbe.length > 0 && (
-              <div className="mt-4">
-                <Label className="text-sm font-medium">
-                  Odabrane vježbe ({odabraneVjezbe.length}):
-                </Label>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {odabraneVjezbe.map((vjezba) => (
-                    <Badge
-                      key={vjezba}
-                      variant="secondary"
-                      className="px-3 py-1"
-                    >
-                      {vjezba}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Odabir vježbi */}
+          <VjezbeSelector
+            vjezbe={vjezbe}
+            odabraneVjezbe={odabraneVjezbe}
+            toggleVjezba={toggleVjezba}
+          />
 
           <Separator />
 
+          {/* Generiranje plana */}
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
@@ -261,40 +159,8 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
             )}
           </Tooltip>
 
-          {plan && (
-            <Card className="mt-6">
-              <CardHeader>
-                <div className="flex justify-between items-center">
-                  <CardTitle>Tvoj plan treninga</CardTitle>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={copyToClipboard}
-                    disabled={!plan || isCopied}
-                  >
-                    {isCopied ? (
-                      <>
-                        <Check className="h-4 w-4 mr-2" />
-                        Kopirano!
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-4 w-4 mr-2" />
-                        Kopiraj
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="relative">
-                  <div className="whitespace-pre-wrap font-mono p-4 bg-gray-100 dark:bg-gray-800 rounded">
-                    {plan}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+          {/* Prikaz plana */}
+          <PlanOutput plan={plan} onChange={setPlan} />
         </CardContent>
       </Card>
     </div>
