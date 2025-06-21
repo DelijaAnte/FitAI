@@ -2,65 +2,72 @@
   {
     "id": "1",
     "naziv": "Čučanj",
-    "misicneSkupine": ["Noge", "Stražnjica"],
+    "misicneSkupine": ["Noge", "Stražnjica", "Core"],
     "slika": "/images/cucanj.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=R1XulIr4W8o"
+    "youtubeLink": "https://www.youtube.com/watch?v=WU_ks_hJ7nY"
   },
   {
     "id": "2",
     "naziv": "Mrtvo dizanje",
-    "misicneSkupine": ["Leđa", "Noge", "Stražnjica"],
+    "misicneSkupine": [
+      "Leđa",
+      "Noge",
+      "Stražnjica",
+      "Core",
+      "Podlaktice",
+      "Trap"
+    ],
     "slika": "/images/mrtvo-dizanje.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=op9kVnSso6Q"
+    "youtubeLink": "https://youtu.be/rW61x5h2y4c?si=tQAzOoABWqJMNvb0"
   },
   {
     "id": "3",
     "naziv": "Bench press",
     "misicneSkupine": ["Prsa", "Triceps", "Ramena"],
     "slika": "/images/bench-press.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=gRVjAtPip0Y"
+    "youtubeLink": "https://www.youtube.com/watch?v=R1XulIr4W8o"
   },
   {
     "id": "4",
     "naziv": "Sklekovi",
-    "misicneSkupine": ["Prsa", "Triceps"],
+    "misicneSkupine": ["Prsa", "Triceps", "Ramena", "Core"],
     "slika": "/images/sklekovi.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+    "youtubeLink": "https://www.youtube.com/watch?v=KwTB3rjPWbE"
   },
   {
     "id": "5",
     "naziv": "Zgibovi",
-    "misicneSkupine": ["Leđa", "Biceps"],
+    "misicneSkupine": ["Leđa", "Biceps", "Core", "Podlaktice"],
     "slika": "/images/zgibovi.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+    "youtubeLink": "https://www.youtube.com/watch?v=gBerzfg5Dzk"
   },
   {
     "id": "6",
     "naziv": "Veslanje sa šipkom",
-    "misicneSkupine": ["Leđa", "Biceps"],
+    "misicneSkupine": ["Leđa", "Biceps", "Core", "Podlaktice"],
     "slika": "/images/veslanje.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=vT2GjY_Umpw"
+    "youtubeLink": "https://www.youtube.com/watch?v=3IUkaK5CJ_I"
   },
   {
     "id": "7",
     "naziv": "Potisak iznad glave",
-    "misicneSkupine": ["Ramena", "Triceps"],
+    "misicneSkupine": ["Ramena", "Triceps", "Core", "Trap"],
     "slika": "/images/shoulder-press.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=B-aVuyhvLHU"
+    "youtubeLink": "https://www.youtube.com/watch?v=jslsYWgJ-UE"
   },
   {
     "id": "8",
     "naziv": "Iskoraci",
-    "misicneSkupine": ["Noge", "Stražnjica"],
+    "misicneSkupine": ["Noge", "Stražnjica", "Core"],
     "slika": "/images/iskoraci.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
   },
   {
     "id": "9",
-    "naziv": "Biceps pregib s bučicama",
+    "naziv": "Biceps pregib",
     "misicneSkupine": ["Biceps"],
     "slika": "/images/biceps.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
+    "youtubeLink": "https://www.youtube.com/watch?v=EtlBsxd3WsQ"
   },
   {
     "id": "10",
@@ -93,13 +100,13 @@
   {
     "id": "14",
     "naziv": "Ruski zaokreti",
-    "misicneSkupine": ["Core", "Kosi trbušni mišići"],
+    "misicneSkupine": ["Core"],
     "slika": "/images/russian-twist.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=wkD8rjkodUI"
   },
   {
     "id": "15",
-    "naziv": "Burpees",
+    "naziv": "Burpees/marinci",
     "misicneSkupine": ["Kardio"],
     "slika": "/images/burpees.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=TU8QYVW0gDU"
@@ -107,7 +114,7 @@
   {
     "id": "16",
     "naziv": "Povlačenje na lat mašini",
-    "misicneSkupine": ["Leđa", "Biceps"],
+    "misicneSkupine": ["Leđa", "Biceps", "Podlaktice"],
     "slika": "/images/lat-pulldown.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
   },
@@ -128,7 +135,7 @@
   {
     "id": "19",
     "naziv": "Hip thrust",
-    "misicneSkupine": ["Stražnjica", "Noge"],
+    "misicneSkupine": ["Stražnjica", "Noge", "Core"],
     "slika": "/images/hip-thrust.jpg",
     "youtubeLink": "https://www.youtube.com/watch?v=LM8XHLYJoYs"
   },

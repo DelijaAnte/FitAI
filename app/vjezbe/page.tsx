@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import { FaYoutube } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Select,
@@ -20,7 +20,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { FaPlay } from "react-icons/fa";
 
 interface Vjezba {
   id: string;
@@ -43,7 +42,6 @@ export default function ExercisesPage() {
   useEffect(() => {
     const fetchVjezbe = async () => {
       const res = await fetch("/data/vjezbe.json", { cache: "no-store" });
-
       const data = await res.json();
       setVjezbe(data);
     };
@@ -73,7 +71,6 @@ export default function ExercisesPage() {
     );
   }, [vjezbe, filterSkupina, searchQuery, sortOrder]);
 
-  // Funkcija za izvlačenje YouTube ID-a iz URL-a
   const extractYouTubeId = (url: string) => {
     const regExp =
       /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -81,7 +78,6 @@ export default function ExercisesPage() {
     return match && match[1].length === 11 ? match[1] : null;
   };
 
-  // Kad se otvori novi dialog, resetiraj video na false
   const onDialogOpen = (vjezba: Vjezba) => {
     setSelektiranaVjezba(vjezba);
     setPustiVideo(false);
@@ -144,7 +140,7 @@ export default function ExercisesPage() {
                   className="rounded-t-2xl object-cover w-full h-48 hover:brightness-95 transition"
                 />
                 <CardContent className="space-y-3 p-4">
-                  <CardTitle className="text-xl hover:text-blue-700 transition-colors">
+                  <CardTitle className="text-xl bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
                     {vjezba.naziv}
                   </CardTitle>
                   <div className="flex flex-wrap gap-1">
@@ -164,10 +160,11 @@ export default function ExercisesPage() {
               {selektiranaVjezba && (
                 <>
                   <DialogHeader>
-                    <DialogTitle className="text-2xl">
+                    <DialogTitle className="text-2xl bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
                       {selektiranaVjezba.naziv}
                     </DialogTitle>
                   </DialogHeader>
+
                   <div
                     className="relative rounded-xl mt-4 w-full h-64 overflow-hidden cursor-pointer"
                     onClick={() => setPustiVideo(!pustiVideo)}
@@ -182,7 +179,6 @@ export default function ExercisesPage() {
                           height={300}
                           className="rounded-xl object-cover w-full h-64"
                         />
-                        {/* Play ikona preko slike */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                           <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
                             <FaPlay className="text-white w-8 h-8 ml-1" />
@@ -208,15 +204,6 @@ export default function ExercisesPage() {
                       {selektiranaVjezba.misicneSkupine.join(", ")}
                     </strong>
                   </p>
-                  <a
-                    href={selektiranaVjezba.youtubeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-700 hover:text-blue-800 text-sm mt-4"
-                  >
-                    <FaYoutube className="w-4 h-4 mr-1" />
-                    Pogledaj video na YouTubeu
-                  </a>
                 </>
               )}
             </DialogContent>
