@@ -4,7 +4,8 @@
     "naziv": "Čučanj",
     "misicneSkupine": ["Noge", "Stražnjica", "Core"],
     "slika": "/images/cucanj.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=WU_ks_hJ7nY"
+    "youtubeLink": "https://www.youtube.com/watch?v=WU_ks_hJ7nY",
+    "tip": "složena"
   },
   {
     "id": "2",
@@ -18,132 +19,151 @@
       "Trap"
     ],
     "slika": "/images/mrtvo-dizanje.jpg",
-    "youtubeLink": "https://youtu.be/rW61x5h2y4c?si=tQAzOoABWqJMNvb0"
+    "youtubeLink": "https://youtu.be/rW61x5h2y4c?si=tQAzOoABWqJMNvb0",
+    "tip": "složena"
   },
   {
     "id": "3",
     "naziv": "Bench press",
     "misicneSkupine": ["Prsa", "Triceps", "Ramena"],
     "slika": "/images/bench-press.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=R1XulIr4W8o"
+    "youtubeLink": "https://www.youtube.com/watch?v=R1XulIr4W8o",
+    "tip": "složena"
   },
   {
     "id": "4",
     "naziv": "Sklekovi",
     "misicneSkupine": ["Prsa", "Triceps", "Ramena", "Core"],
     "slika": "/images/sklekovi.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=KwTB3rjPWbE"
+    "youtubeLink": "https://www.youtube.com/watch?v=KwTB3rjPWbE",
+    "tip": "složena"
   },
   {
     "id": "5",
     "naziv": "Zgibovi",
     "misicneSkupine": ["Leđa", "Biceps", "Core", "Podlaktice"],
     "slika": "/images/zgibovi.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=gBerzfg5Dzk"
+    "youtubeLink": "https://www.youtube.com/watch?v=gBerzfg5Dzk",
+    "tip": "složena"
   },
   {
     "id": "6",
     "naziv": "Veslanje sa šipkom",
     "misicneSkupine": ["Leđa", "Biceps", "Core", "Podlaktice"],
     "slika": "/images/veslanje.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=3IUkaK5CJ_I"
+    "youtubeLink": "https://www.youtube.com/watch?v=3IUkaK5CJ_I",
+    "tip": "složena"
   },
   {
     "id": "7",
     "naziv": "Potisak iznad glave",
     "misicneSkupine": ["Ramena", "Triceps", "Core", "Trap"],
     "slika": "/images/shoulder-press.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=jslsYWgJ-UE"
+    "youtubeLink": "https://www.youtube.com/watch?v=jslsYWgJ-UE",
+    "tip": "složena"
   },
   {
     "id": "8",
     "naziv": "Iskoraci",
     "misicneSkupine": ["Noge", "Stražnjica", "Core"],
     "slika": "/images/iskoraci.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
+    "youtubeLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U",
+    "tip": "složena"
   },
   {
     "id": "9",
     "naziv": "Biceps pregib",
     "misicneSkupine": ["Biceps"],
     "slika": "/images/biceps.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=EtlBsxd3WsQ"
+    "youtubeLink": "https://www.youtube.com/watch?v=EtlBsxd3WsQ",
+    "tip": "izolacija"
   },
   {
     "id": "10",
     "naziv": "Triceps ekstenzija",
     "misicneSkupine": ["Triceps"],
     "slika": "/images/triceps.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=nRiJVZDpdL0"
+    "youtubeLink": "https://www.youtube.com/watch?v=nRiJVZDpdL0",
+    "tip": "izolacija"
   },
   {
     "id": "11",
     "naziv": "Plank",
     "misicneSkupine": ["Core"],
     "slika": "/images/plank.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+    "youtubeLink": "https://www.youtube.com/watch?v=pSHjTRCQxIw",
+    "tip": "izolacija"
   },
   {
     "id": "12",
     "naziv": "Mountain climbers",
     "misicneSkupine": ["Core", "Ramena", "Noge"],
     "slika": "/images/mountain-climbers.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=nmwgirgXLYM"
+    "youtubeLink": "https://www.youtube.com/watch?v=nmwgirgXLYM",
+    "tip": "složena"
   },
   {
     "id": "13",
     "naziv": "Trbušnjaci",
     "misicneSkupine": ["Core"],
     "slika": "/images/trbusnjaci.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=1fbU_MkV7NE"
+    "youtubeLink": "https://www.youtube.com/watch?v=1fbU_MkV7NE",
+    "tip": "izolacija"
   },
   {
     "id": "14",
     "naziv": "Ruski zaokreti",
     "misicneSkupine": ["Core"],
     "slika": "/images/russian-twist.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=wkD8rjkodUI"
+    "youtubeLink": "https://www.youtube.com/watch?v=wkD8rjkodUI",
+    "tip": "izolacija"
   },
   {
     "id": "15",
     "naziv": "Burpees/marinci",
     "misicneSkupine": ["Kardio"],
     "slika": "/images/burpees.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=TU8QYVW0gDU"
+    "youtubeLink": "https://www.youtube.com/watch?v=TU8QYVW0gDU",
+    "tip": "složena"
   },
   {
     "id": "16",
     "naziv": "Povlačenje na lat mašini",
     "misicneSkupine": ["Leđa", "Biceps", "Podlaktice"],
     "slika": "/images/lat-pulldown.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
+    "youtubeLink": "https://www.youtube.com/watch?v=CAwf7n6Luuc",
+    "tip": "složena"
   },
   {
     "id": "17",
     "naziv": "Leg press",
     "misicneSkupine": ["Noge", "Stražnjica"],
     "slika": "/images/leg-press.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
+    "youtubeLink": "https://www.youtube.com/watch?v=IZxyjW7MPJQ",
+    "tip": "složena"
   },
   {
     "id": "18",
     "naziv": "Lateralno podizanje ruku",
     "misicneSkupine": ["Ramena"],
     "slika": "/images/lateral-raise.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=kDqklk1ZESo"
+    "youtubeLink": "https://www.youtube.com/watch?v=kDqklk1ZESo",
+    "tip": "izolacija"
   },
   {
     "id": "19",
     "naziv": "Hip thrust",
     "misicneSkupine": ["Stražnjica", "Noge", "Core"],
     "slika": "/images/hip-thrust.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=LM8XHLYJoYs"
+    "youtubeLink": "https://www.youtube.com/watch?v=LM8XHLYJoYs",
+    "tip": "složena"
   },
   {
     "id": "20",
     "naziv": "Farmer's walk",
     "misicneSkupine": ["Core", "Podlaktice", "Trap"],
     "slika": "/images/farmers-walk.jpg",
-    "youtubeLink": "https://www.youtube.com/watch?v=6Z15_WdXmVw"
+    "youtubeLink": "https://www.youtube.com/watch?v=6Z15_WdXmVw",
+    "tip": "složena"
   }
 ]

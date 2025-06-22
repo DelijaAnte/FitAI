@@ -27,17 +27,19 @@ interface Vjezba {
   misicneSkupine: string[];
   slika: string;
   youtubeLink: string;
+  tip: string;
 }
 
 export default function ExercisesPage() {
   const [vjezbe, setVjezbe] = useState<Vjezba[]>([]);
-  const [filterSkupina, setFilterSkupina] = useState<string>("Sve");
+  const [filterSkupina, setFilterSkupina] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchQuery, setSearchQuery] = useState("");
   const [selektiranaVjezba, setSelektiranaVjezba] = useState<Vjezba | null>(
     null
   );
   const [pustiVideo, setPustiVideo] = useState(false);
+  const [filterTip, setFilterTip] = useState<string>("Sve");
 
   useEffect(() => {
     const fetchVjezbe = async () => {
@@ -56,11 +58,16 @@ export default function ExercisesPage() {
 
   const prikazaneVjezbe = useMemo(() => {
     const filtrirane =
-      filterSkupina === "Sve"
+      !filterSkupina || filterSkupina === "Sve"
         ? vjezbe
         : vjezbe.filter((v) => v.misicneSkupine.includes(filterSkupina));
 
-    const pretrazene = filtrirane.filter((v) =>
+    const filtriraneTip =
+      filterTip === "Sve"
+        ? filtrirane
+        : filtrirane.filter((v) => v.tip === filterTip);
+
+    const pretrazene = filtriraneTip.filter((v) =>
       v.naziv.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -69,7 +76,7 @@ export default function ExercisesPage() {
         ? a.naziv.localeCompare(b.naziv)
         : b.naziv.localeCompare(a.naziv)
     );
-  }, [vjezbe, filterSkupina, searchQuery, sortOrder]);
+  }, [vjezbe, filterSkupina, filterTip, searchQuery, sortOrder]);
 
   const extractYouTubeId = (url: string) => {
     const regExp =
@@ -92,11 +99,13 @@ export default function ExercisesPage() {
             <SelectValue placeholder="Odaberi mišićnu skupinu" />
           </SelectTrigger>
           <SelectContent>
-            {sveSkupine.map((skupina) => (
-              <SelectItem key={skupina} value={skupina}>
-                {skupina}
-              </SelectItem>
-            ))}
+            {sveSkupine
+              .filter((skupina) => skupina !== "Sve")
+              .map((skupina) => (
+                <SelectItem key={skupina} value={skupina}>
+                  {skupina}
+                </SelectItem>
+              ))}
           </SelectContent>
         </Select>
 
@@ -115,6 +124,16 @@ export default function ExercisesPage() {
         >
           <ToggleGroupItem value="asc">A–Ž</ToggleGroupItem>
           <ToggleGroupItem value="desc">Ž–A</ToggleGroupItem>
+        </ToggleGroup>
+        <ToggleGroup
+          type="single"
+          value={filterTip}
+          onValueChange={(val) => val && setFilterTip(val)}
+          className="flex"
+        >
+          <ToggleGroupItem value="Sve">Sve vrste</ToggleGroupItem>
+          <ToggleGroupItem value="složena">Složena</ToggleGroupItem>
+          <ToggleGroupItem value="izolacija">Izolacija</ToggleGroupItem>
         </ToggleGroup>
       </div>
 
