@@ -1,4 +1,3 @@
-// components/PlanOptions.tsx
 "use client";
 import {
   Select,
@@ -25,14 +24,14 @@ export default function PlanOptions({
   ciljevi,
 }: PlanOptionsProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-2">
-        <Label>Broj trening dana u tjednu</Label>
+        <Label>Broj treninga</Label>
         <Select
           value={dani.toString()}
           onValueChange={(value) => setDani(Number(value))}
         >
-          <SelectTrigger>
+          <SelectTrigger className="border-blue-400 focus:border-blue-600 hover:border-blue-500">
             <SelectValue placeholder="Odaberi broj dana" />
           </SelectTrigger>
           <SelectContent>
@@ -46,9 +45,9 @@ export default function PlanOptions({
       </div>
 
       <div className="space-y-2">
-        <Label>Treninski cilj</Label>
+        <Label>Trening cilj</Label>
         <Select value={cilj} onValueChange={setCilj}>
-          <SelectTrigger>
+          <SelectTrigger className="border-blue-400 focus:border-blue-600 hover:border-blue-500">
             <SelectValue placeholder="Odaberi cilj" />
           </SelectTrigger>
           <SelectContent>

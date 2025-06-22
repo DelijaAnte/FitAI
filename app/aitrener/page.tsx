@@ -32,7 +32,7 @@ export default function TreningGeneratorPage() {
 
   const ciljevi = [
     "Snaga",
-    "Hipertrofija",
+    "Hipertrofija (mišićna masa)",
     "Izdržljivost",
     "Gubitak masti",
     "Opća kondicija",
@@ -89,7 +89,7 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
     <div className="max-w-4xl mx-auto p-4 space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-center">
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
             AI Trening Generator
           </CardTitle>
         </CardHeader>
@@ -103,7 +103,7 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
             ciljevi={ciljevi}
           />
 
-          <Separator />
+          <Separator className="border-blue-300" />
 
           {/* Odabir vježbi */}
           <VjezbeSelector
@@ -112,7 +112,7 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
             toggleVjezba={toggleVjezba}
           />
 
-          <Separator />
+          <Separator className="border-blue-300" />
 
           {/* Generiranje plana */}
           <Tooltip>
@@ -120,7 +120,7 @@ Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
               <Button
                 onClick={handleSubmit}
                 disabled={loading || odabraneVjezbe.length < 1}
-                className="w-full"
+                className="w-full bg-blue-500 hover:bg-blue-700 text-white"
                 size="lg"
               >
                 {loading ? (
