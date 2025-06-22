@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export default function KalorijskiKalkulator() {
   const [spol, setSpol] = useState("muško");
@@ -19,30 +20,51 @@ export default function KalorijskiKalkulator() {
   const [visina, setVisina] = useState("");
   const [aktivnost, setAktivnost] = useState("1.2");
   const [cilj, setCilj] = useState("održavanje");
+  const [aiOdgovor, setAiOdgovor] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const parseNum = (val: string) => parseFloat(val) || 0;
+  const handleIzracun = async () => {
+    setLoading(true);
+    setAiOdgovor("");
 
-  const bmr =
-    spol === "muško"
-      ? 10 * parseNum(tezina) + 6.25 * parseNum(visina) - 5 * parseNum(dob) + 5
-      : 10 * parseNum(tezina) +
-        6.25 * parseNum(visina) -
-        5 * parseNum(dob) -
-        161;
+    const prompt = `Na temelju ovih podataka izračunaj samo procijenjeni dnevni kalorijski unos (u kcal). Zatim ispod napiši dvije kratke rečenice s praktičnim savjetima kako se osoba treba hraniti s obzirom na svoj cilj (mršavljenje, održavanje ili masa). Format odgovora neka bude ovakav:
 
-  const tdee = bmr * parseFloat(aktivnost);
+[broj] kcal  
+Savjet 1.  
+Savjet 2.
 
-  const kalorije =
-    cilj === "mršavljenje" ? tdee - 500 : cilj === "masa" ? tdee + 500 : tdee;
+Podaci:  
+- Spol: ${spol}  
+- Dob: ${dob} godina  
+- Težina: ${tezina} kg  
+- Visina: ${visina} cm  
+- Razina aktivnosti: ${aktivnost}  
+- Cilj: ${cilj}`;
+
+    try {
+      const res = await fetch("/api/ai-kalorije", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+      const data = await res.json();
+      setAiOdgovor(data.odgovor || "Došlo je do greške.");
+    } catch {
+      setAiOdgovor("Došlo je do greške pri komunikaciji s AI servisom.");
+    }
+    setLoading(false);
+  };
 
   return (
     <div className="p-6 max-w-xl mx-auto space-y-6">
       <Card>
         <CardContent className="space-y-4 pt-6">
-          <CardTitle>Kalorijski kalkulator</CardTitle>
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
+            Kalorijski kalkulator (AI)
+          </CardTitle>
 
           <div>
-            <Label>Spol</Label>
+            <Label className="mb-1">Spol</Label>
             <Select value={spol} onValueChange={setSpol}>
               <SelectTrigger>
                 <SelectValue placeholder="Odaberi spol" />
@@ -56,7 +78,7 @@ export default function KalorijskiKalkulator() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label>Dob</Label>
+              <Label className="mb-1">Dob</Label>
               <Input
                 type="number"
                 value={dob}
@@ -64,7 +86,7 @@ export default function KalorijskiKalkulator() {
               />
             </div>
             <div>
-              <Label>Težina (kg)</Label>
+              <Label className="mb-1">Težina (kg)</Label>
               <Input
                 type="number"
                 value={tezina}
@@ -72,7 +94,7 @@ export default function KalorijskiKalkulator() {
               />
             </div>
             <div>
-              <Label>Visina (cm)</Label>
+              <Label className="mb-1">Visina (cm)</Label>
               <Input
                 type="number"
                 value={visina}
@@ -82,7 +104,7 @@ export default function KalorijskiKalkulator() {
           </div>
 
           <div>
-            <Label>Razina aktivnosti</Label>
+            <Label className="mb-1">Razina aktivnosti</Label>
             <Select value={aktivnost} onValueChange={setAktivnost}>
               <SelectTrigger>
                 <SelectValue placeholder="Aktivnost" />
@@ -104,7 +126,7 @@ export default function KalorijskiKalkulator() {
           </div>
 
           <div>
-            <Label>Cilj</Label>
+            <Label className="mb-1">Cilj</Label>
             <Select value={cilj} onValueChange={setCilj}>
               <SelectTrigger>
                 <SelectValue placeholder="Cilj" />
@@ -117,12 +139,27 @@ export default function KalorijskiKalkulator() {
             </Select>
           </div>
 
-          <div className="pt-4">
-            <h3 className="text-lg font-semibold">Rezultat</h3>
-            <p>BMR: {bmr.toFixed(0)} kcal</p>
-            <p>TDEE: {tdee.toFixed(0)} kcal</p>
-            <p>Ciljane kalorije: {kalorije.toFixed(0)} kcal/dan</p>
-          </div>
+          <Button
+            onClick={handleIzracun}
+            disabled={
+              loading ||
+              !dob ||
+              !tezina ||
+              !visina ||
+              !spol ||
+              !aktivnost ||
+              !cilj
+            }
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white"
+          >
+            {loading ? "Računam..." : "Izračunaj s AI-em"}
+          </Button>
+
+          {aiOdgovor && (
+            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded whitespace-pre-wrap mt-4 font-mono text-sm">
+              {aiOdgovor}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
