@@ -55,24 +55,26 @@ export default function TreningGeneratorPage() {
 
     setLoading(true);
     setPlan("");
+
     const prompt = `Generiraj tjedni trening plan za ${dani} dana s ciljem "${cilj}". Koristi samo sljedeće vježbe: ${odabraneVjezbe.join(
       ", "
-    )}. Svaki dan neka bude različit i neka ne ponavlja potpuno iste vježbe. 
+    )}. Svaki dan neka bude različit i neka ne ponavlja potpuno iste vježbe.
 
-Za svaki dan prikaži samo ime vježbe i broj serija i ponavljanja, bez dodatnih objašnjenja, bez naslova "Serije x Ponavljanja", i bez ponavljanja zaglavlja tablice. 
-
-Format odgovora neka bude u obliku:
+Za svaku vježbu dodaj preporučeni broj serija i ponavljanja, kao i procijenjeni intenzitet u obliku RPE skale (npr. RPE 7 ili RPE 8-9). Format prikaza neka bude:
 
 Dan 1  
-- Bench press — 4 x 6  
-- Čučanj — 4 x 8  
-- Trbušnjaci — 3 x 12  
+- Bench press — 4 x 6 (RPE 8)  
+- Čučanj — 4 x 8 (RPE 7-8)  
+- Trbušnjaci — 3 x 12 (RPE 6)  
 
 Dan 2  
-- Mrtvo dizanje — 4 x 6  
-- ...  
+- Mrtvo dizanje — 4 x 6 (RPE 9)  
+- ...
 
-Samo ovakav raspored, bez ikakvog dodatnog teksta.`;
+Na kraju, ispod plana dodaj rečenicu:  
+"RPE (Rate of Perceived Exertion) označava subjektivni osjećaj napora tijekom vježbe. Detaljnije: https://my.clevelandclinic.org/health/articles/17450-rated-perceived-exertion-rpe-scale"  
+
+Nemoj dodavati ništa osim ovakvog rasporeda i tog jednog rečenog objašnjenja.`;
 
     const res = await fetch("/api/generiraj-plan", {
       method: "POST",
