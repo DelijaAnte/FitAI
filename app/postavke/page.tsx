@@ -1,12 +1,8 @@
-import React from "react";
-
-const PostavkePage = () => {
+export default function PostavkePage() {
   return (
-    <main>
-      <h1>Postavke</h1>
-      <p>Ovdje možete prilagoditi postavke.</p>
-    </main>
+    <div>
+      <div className="text-2xl font-bold mb-2">Postavke</div>
+      <div>Ovdje možete prilagoditi postavke.</div>
+    </div>
   );
-};
-
-export default PostavkePage;
+}

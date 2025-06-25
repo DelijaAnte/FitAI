@@ -41,14 +41,14 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-10 max-w-sm w-full flex flex-col gap-6 items-center">
+    <div className="bg-white dark:bg-zinc-900 rounded-xl shadow-lg p-10 max-w-sm w-full flex flex-col gap-6 items-center">
       <h2 className="text-3xl font-extrabold mb-6 text-blue-700 text-center">
         Dobrodošao u FitAI
       </h2>
 
       <Button
         onClick={handleGoogleLogin}
-        className="gap-2 text-lg w-full justify-center"
+        className="gap-2 text-lg w-full justify-center bg-stone-200 hover:bg-stone-300 border border-stone-200 text-gray-800"
       >
         <FcGoogle className="text-2xl" />
         Prijavi se putem Googlea

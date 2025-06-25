@@ -148,7 +148,7 @@ export default function ExercisesPage() {
               <Card
                 onClick={() => onDialogOpen(vjezba)}
                 className="hover:shadow-lg transition-all duration-200 ease-in-out cursor-pointer 
-                  border border-transparent hover:border-blue-700/20 hover:bg-blue-50/50
+                  border border-transparent hover:border-blue-700/50
                   transform hover:-translate-y-1"
               >
                 <Image
