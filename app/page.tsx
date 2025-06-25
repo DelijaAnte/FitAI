@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { useAuth } from "./context/auth-context";
+import Login from "./components/Login";
 
 const sections = [
   {
@@ -106,6 +108,12 @@ function Section({
 }
 
 export default function LandingPage() {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Login />;
+  }
+
   return (
     <div
       className="h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth"

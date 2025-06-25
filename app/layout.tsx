@@ -4,6 +4,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import ModeToggle from "@/components/mode-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { AuthProvider } from "./context/auth-context";
 
 export default function RootLayout({
   children,
@@ -13,30 +14,32 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-x-hidden">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SidebarProvider>
-            <div className="flex min-h-screen relative">
-              <AppSidebar className="flex-shrink-0" />
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SidebarProvider>
+              <div className="flex min-h-screen relative">
+                <AppSidebar className="flex-shrink-0" />
 
-              <div
-                className="fixed left-2 z-50 flex flex-col items-center"
-                style={{ top: "40vh" }}
-              >
-                <SidebarTrigger />
-                <div className="mt-4">
-                  <ModeToggle />
+                <div
+                  className="fixed left-2 z-50 flex flex-col items-center"
+                  style={{ top: "40vh" }}
+                >
+                  <SidebarTrigger />
+                  <div className="mt-4">
+                    <ModeToggle />
+                  </div>
                 </div>
-              </div>
 
-              <main className="flex-grow relative">{children}</main>
-            </div>
-          </SidebarProvider>
-        </ThemeProvider>
+                <main className="flex-grow relative">{children}</main>
+              </div>
+            </SidebarProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

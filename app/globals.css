@@ -120,9 +120,8 @@
     @apply bg-background text-foreground;
   }
 }
-/* Osigurava da html i body koriste punu visinu */
 html,
-body {
-  width: 100%;
+body,
+#__next {
   height: 100%;
 }
