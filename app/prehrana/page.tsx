@@ -66,7 +66,7 @@ Podaci:
           <div>
             <Label className="mb-1">Spol</Label>
             <Select value={spol} onValueChange={setSpol}>
-              <SelectTrigger>
+              <SelectTrigger className="border border-blue-300">
                 <SelectValue placeholder="Odaberi spol" />
               </SelectTrigger>
               <SelectContent>
@@ -83,6 +83,7 @@ Podaci:
                 type="number"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
+                className="border border-blue-300"
               />
             </div>
             <div>
@@ -91,6 +92,7 @@ Podaci:
                 type="number"
                 value={tezina}
                 onChange={(e) => setTezina(e.target.value)}
+                className="border border-blue-300"
               />
             </div>
             <div>
@@ -99,6 +101,7 @@ Podaci:
                 type="number"
                 value={visina}
                 onChange={(e) => setVisina(e.target.value)}
+                className="border border-blue-300"
               />
             </div>
           </div>
@@ -106,7 +109,7 @@ Podaci:
           <div>
             <Label className="mb-1">Razina aktivnosti</Label>
             <Select value={aktivnost} onValueChange={setAktivnost}>
-              <SelectTrigger>
+              <SelectTrigger className="border border-blue-300">
                 <SelectValue placeholder="Aktivnost" />
               </SelectTrigger>
               <SelectContent>
@@ -128,7 +131,7 @@ Podaci:
           <div>
             <Label className="mb-1">Cilj</Label>
             <Select value={cilj} onValueChange={setCilj}>
-              <SelectTrigger>
+              <SelectTrigger className="border border-blue-300">
                 <SelectValue placeholder="Cilj" />
               </SelectTrigger>
               <SelectContent>
