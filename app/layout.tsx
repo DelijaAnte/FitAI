@@ -4,7 +4,6 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
-import ModeToggle from "@/components/mode-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { AuthProvider, useAuth } from "./context/auth-context";
 
@@ -45,9 +44,9 @@ function LayoutWrapper({ children }: { children: React.ReactNode }) {
             style={{ top: "40vh" }}
           >
             <SidebarTrigger />
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <ModeToggle />
-            </div>
+            </div> */}
           </div>
         )}
 
