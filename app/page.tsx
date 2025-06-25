@@ -111,7 +111,11 @@ export default function LandingPage() {
   const { user } = useAuth();
 
   if (!user) {
-    return <Login />;
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <Login />
+      </div>
+    );
   }
 
   return (

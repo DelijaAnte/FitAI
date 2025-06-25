@@ -1,3 +1,5 @@
+"use client";
+
 import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -22,9 +24,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SidebarProvider>
-              <div className="flex min-h-screen relative">
+              <div className="flex min-h-screen w-full relative">
                 <AppSidebar className="flex-shrink-0" />
 
+                {/* Sidebar toggle and theme switcher */}
                 <div
                   className="fixed left-2 z-50 flex flex-col items-center"
                   style={{ top: "40vh" }}
@@ -35,7 +38,21 @@ export default function RootLayout({
                   </div>
                 </div>
 
-                <main className="flex-grow relative">{children}</main>
+                {/* Main content area - now with two modes */}
+                <main className="flex-1 flex flex-col min-h-screen">
+                  {/* Full-width content slot */}
+                  <div className="w-full" data-layout="full-width">
+                    {children}
+                  </div>
+
+                  {/* Centered content slot (alternative) */}
+                  <div
+                    className="flex-1 flex items-center justify-center p-4 hidden"
+                    data-layout="centered"
+                  >
+                    <div className="w-full max-w-4xl mx-auto">{children}</div>
+                  </div>
+                </main>
               </div>
             </SidebarProvider>
           </ThemeProvider>
