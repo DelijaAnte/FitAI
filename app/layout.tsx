@@ -6,7 +6,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import ModeToggle from "@/components/mode-toggle";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { AuthProvider } from "./context/auth-context";
+import { AuthProvider, useAuth } from "./context/auth-context";
 
 export default function RootLayout({
   children,
@@ -23,41 +23,47 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <SidebarProvider>
-              <div className="flex min-h-screen w-full relative">
-                <AppSidebar className="flex-shrink-0" />
-
-                {/* Sidebar toggle and theme switcher */}
-                <div
-                  className="fixed left-2 z-50 flex flex-col items-center"
-                  style={{ top: "40vh" }}
-                >
-                  <SidebarTrigger />
-                  <div className="mt-4">
-                    <ModeToggle />
-                  </div>
-                </div>
-
-                {/* Main content area - now with two modes */}
-                <main className="flex-1 flex flex-col min-h-screen">
-                  {/* Full-width content slot */}
-                  <div className="w-full" data-layout="full-width">
-                    {children}
-                  </div>
-
-                  {/* Centered content slot (alternative) */}
-                  <div
-                    className="flex-1 flex items-center justify-center p-4 hidden"
-                    data-layout="centered"
-                  >
-                    <div className="w-full max-w-4xl mx-auto">{children}</div>
-                  </div>
-                </main>
-              </div>
-            </SidebarProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
           </ThemeProvider>
         </AuthProvider>
       </body>
     </html>
+  );
+}
+
+function LayoutWrapper({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth();
+
+  return (
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full relative">
+        {user && <AppSidebar className="flex-shrink-0" />}
+
+        {user && (
+          <div
+            className="fixed left-2 z-50 flex flex-col items-center"
+            style={{ top: "40vh" }}
+          >
+            <SidebarTrigger />
+            <div className="mt-4">
+              <ModeToggle />
+            </div>
+          </div>
+        )}
+
+        <main className="flex-1 flex flex-col min-h-screen">
+          <div className="w-full" data-layout="full-width">
+            {children}
+          </div>
+
+          <div
+            className="flex-1 flex items-center justify-center p-4 hidden"
+            data-layout="centered"
+          >
+            <div className="w-full max-w-4xl mx-auto">{children}</div>
+          </div>
+        </main>
+      </div>
+    </SidebarProvider>
   );
 }
