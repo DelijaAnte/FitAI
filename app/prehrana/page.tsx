@@ -12,6 +12,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function KalorijskiKalkulator() {
   const [spol, setSpol] = useState("muško");
@@ -155,7 +156,7 @@ Podaci:
             }
             className="w-full bg-blue-500 hover:bg-blue-700 text-white"
           >
-            {loading ? "Računam..." : "Izračunaj s AI-em"}
+            {loading ? <LoadingSpinner /> : "Izračunaj s AI-em"}
           </Button>
 
           {aiOdgovor && (
