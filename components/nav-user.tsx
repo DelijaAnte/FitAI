@@ -6,7 +6,6 @@ import {
   ChevronsUpDown,
   CreditCard,
   LogOut,
-  Sparkles,
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -78,29 +77,22 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
                 <BadgeCheck />
-                Account
+                Račun
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <CreditCard />
-                Billing
+                Plaćanja
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />
-                Notifications
+                Obavijesti
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />
-              Log out
+              Odjava
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
