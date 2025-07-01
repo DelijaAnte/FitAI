@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Dumbbell, Flame, Bot, Gauge, Settings2 } from "lucide-react";
+import { Dumbbell, Flame, Bot, Gauge } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -48,12 +48,6 @@ const data = {
       title: "Kalorijski kalkulator",
       url: "/prehrana",
       icon: Flame,
-      items: [],
-    },
-    {
-      title: "Postavke",
-      url: "/postavke",
-      icon: Settings2,
       items: [],
     },
   ],

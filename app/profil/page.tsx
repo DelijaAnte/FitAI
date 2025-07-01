@@ -54,7 +54,7 @@ export default function ProfilPage() {
           </CardTitle>
 
           <div className="bg-zinc-800 p-4 rounded-lg mb-4">
-            <h2 className="text-xl font-semibold mb-2 text-white">
+            <h2 className="text-xl font-semibold mb-2 text-blue-400">
               Osnovni podaci
             </h2>
             <p>
@@ -67,7 +67,7 @@ export default function ProfilPage() {
           </div>
 
           <div className="bg-zinc-800 p-4 rounded-lg mb-4">
-            <h2 className="text-xl font-semibold mb-2 text-white">
+            <h2 className="text-xl font-semibold mb-2 text-blue-400">
               Trenutni plan treninga
             </h2>
             {loading ? (
@@ -82,7 +82,7 @@ export default function ProfilPage() {
           </div>
 
           <div className="bg-zinc-800 p-4 rounded-lg mb-4">
-            <h2 className="text-xl font-semibold mb-2 text-white">
+            <h2 className="text-xl font-semibold mb-2 text-blue-400">
               Spremljeni kalorijski unos
             </h2>
             {caloriesLoading ? (
@@ -95,7 +95,9 @@ export default function ProfilPage() {
           </div>
 
           <div className="bg-zinc-800 p-4 rounded-lg">
-            <h2 className="text-xl font-semibold mb-2 text-white">Napredak</h2>
+            <h2 className="text-xl font-semibold mb-2 text-blue-400">
+              Napredak
+            </h2>
             <p>
               Ovdje će biti prikazani grafovi napretka za cijeli program i svaku
               vježbu posebno.

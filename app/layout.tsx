@@ -51,7 +51,7 @@ function LayoutWrapper({ children }: { children: React.ReactNode }) {
         {user && (
           <div
             className="fixed left-2 z-50 flex flex-col items-center"
-            style={{ top: "36.5vh" }}
+            style={{ top: "32vh" }}
           >
             <SidebarTrigger />
             {/* <div className="mt-4">
