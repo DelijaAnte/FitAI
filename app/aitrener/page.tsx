@@ -32,6 +32,7 @@ export default function TreningGeneratorPage() {
   const [odabraneVjezbe, setOdabraneVjezbe] = useState<string[]>([]);
   const [dani, setDani] = useState(3);
   const [cilj, setCilj] = useState("Snaga");
+  const [iskustvo, setIskustvo] = useState("početnik");
   const [plan, setPlan] = useState("");
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
@@ -62,9 +63,14 @@ export default function TreningGeneratorPage() {
     setLoading(true);
     setPlan("");
 
-    const prompt = `Generiraj tjedni trening plan za ${dani} dana s ciljem "${cilj}". Koristi samo sljedeće vježbe: ${odabraneVjezbe.join(
+    const prompt = `Generiraj tjedni trening plan za ${dani} dana s ciljem "${cilj}" za osobu s razinom iskustva "${iskustvo}". Koristi samo sljedeće vježbe: ${odabraneVjezbe.join(
       ", "
     )}. Svaki dan neka bude različit i neka ne ponavlja potpuno iste vježbe.
+
+Prilagodi plan prema razini iskustva:
+- Početnik: manje serija, više ponavljanja, niži intenzitet
+- Srednje napredni: umjeren broj serija i ponavljanja
+- Napredni: više serija, manje ponavljanja, viši intenzitet
 
 Za svaku vježbu dodaj preporučeni broj serija i ponavljanja, kao i procijenjeni intenzitet u obliku RPE skale (npr. RPE 7 ili RPE 8-9). Format prikaza neka bude:
 
@@ -113,13 +119,15 @@ Nemoj dodavati ništa osim ovakvog rasporeda.`;
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Odabir dana i cilja */}
+          {/* Odabir dana, cilja i iskustva */}
           <PlanOptions
             dani={dani}
             setDani={setDani}
             cilj={cilj}
             setCilj={setCilj}
             ciljevi={ciljevi}
+            iskustvo={iskustvo}
+            setIskustvo={setIskustvo}
           />
 
           <Separator className="border-blue-300" />
