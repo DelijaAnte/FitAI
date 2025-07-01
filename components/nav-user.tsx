@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-} from "lucide-react";
+import { ChevronsUpDown, LogOut, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -25,6 +19,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { useAuth } from "@/app/context/auth-context";
+import Link from "next/link";
 
 export function NavUser({
   user,
@@ -78,17 +73,11 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Račun
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Plaćanja
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Obavijesti
+              <DropdownMenuItem asChild>
+                <Link href="/profil">
+                  <User />
+                  Profil
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
