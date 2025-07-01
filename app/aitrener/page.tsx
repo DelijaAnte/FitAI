@@ -104,7 +104,7 @@ Nemoj dodavati ništa osim ovakvog rasporeda.`;
         createdAt: new Date().toISOString(),
         userId: user.uid,
       });
-      toast.success("Plan je uspješno spremljen!");
+      toast.success("Plan je spremljen na profilu!");
     } catch {
       toast.error("Greška pri spremanju plana.");
     }
