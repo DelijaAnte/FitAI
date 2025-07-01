@@ -7,9 +7,18 @@ import { Copy, Check, Pencil, X } from "lucide-react";
 interface Props {
   plan: string;
   onChange: (noviPlan: string) => void;
+  onSavePlan?: () => void;
+  showSaveButton?: boolean;
+  saveButtonClassName?: string;
 }
 
-export default function PlanOutput({ plan, onChange }: Props) {
+export default function PlanOutput({
+  plan,
+  onChange,
+  onSavePlan,
+  showSaveButton,
+  saveButtonClassName,
+}: Props) {
   const [isCopied, setIsCopied] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -65,6 +74,16 @@ export default function PlanOutput({ plan, onChange }: Props) {
                   </>
                 )}
               </Button>
+              {showSaveButton && onSavePlan && (
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={onSavePlan}
+                  className={saveButtonClassName}
+                >
+                  Spremi plan
+                </Button>
+              )}
             </div>
           )}
         </div>

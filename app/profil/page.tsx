@@ -2,9 +2,30 @@
 
 import { useAuth } from "../context/auth-context";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function ProfilPage() {
   const { user } = useAuth();
+  const [plan, setPlan] = useState<string>("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user) return;
+    const fetchPlan = async () => {
+      setLoading(true);
+      const docRef = doc(db, "plans", user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setPlan(docSnap.data().plan || "");
+      } else {
+        setPlan("");
+      }
+      setLoading(false);
+    };
+    fetchPlan();
+  }, [user]);
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
@@ -31,7 +52,15 @@ export default function ProfilPage() {
             <h2 className="text-xl font-semibold mb-2 text-white">
               Trenutni plan treninga
             </h2>
-            <p>Ovdje će biti prikazan trenutni plan treninga korisnika.</p>
+            {loading ? (
+              <p>Učitavanje plana...</p>
+            ) : plan ? (
+              <pre className="whitespace-pre-wrap font-mono text-sm text-white">
+                {plan}
+              </pre>
+            ) : (
+              <p>Nema spremljenog plana.</p>
+            )}
           </div>
 
           <div className="bg-zinc-800 p-4 rounded-lg">

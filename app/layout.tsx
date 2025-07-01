@@ -6,6 +6,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { AuthProvider, useAuth } from "./context/auth-context";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-x-hidden">
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              background: "#18181b", // crna (zinc-900)
+              color: "#3b82f6", // plava (blue-500)
+              fontWeight: 600,
+            },
+          }}
+        />
         <AuthProvider>
           <ThemeProvider
             attribute="class"

@@ -9,6 +9,10 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useAuth } from "../context/auth-context";
+import { db } from "@/lib/firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { toast } from "sonner";
 
 import PlanOptions from "../components/PlanOptions";
 import VjezbeSelector from "../components/VjezbeSelector";
@@ -30,6 +34,7 @@ export default function TreningGeneratorPage() {
   const [cilj, setCilj] = useState("Snaga");
   const [plan, setPlan] = useState("");
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
 
   const ciljevi = [
     "Snaga",
@@ -72,10 +77,7 @@ Dan 2
 - Mrtvo dizanje — 4 x 6 (RPE 9)  
 - ...
 
-Na kraju, ispod plana dodaj rečenicu:  
-"RPE (Rate of Perceived Exertion) označava subjektivni osjećaj napora tijekom vježbe. Detaljnije: https://my.clevelandclinic.org/health/articles/17450-rated-perceived-exertion-rpe-scale"  
-
-Nemoj dodavati ništa osim ovakvog rasporeda i tog jednog rečenog objašnjenja.`;
+Nemoj dodavati ništa osim ovakvog rasporeda.`;
 
     const res = await fetch("/api/generiraj-plan", {
       method: "POST",
@@ -86,6 +88,20 @@ Nemoj dodavati ništa osim ovakvog rasporeda i tog jednog rečenog objašnjenja.
     const data = await res.json();
     setPlan(data.odgovor || "Greška pri generiranju.");
     setLoading(false);
+  };
+
+  const handleSavePlan = async () => {
+    if (!user || !plan) return;
+    try {
+      await setDoc(doc(db, "plans", user.uid), {
+        plan,
+        createdAt: new Date().toISOString(),
+        userId: user.uid,
+      });
+      toast.success("Plan je uspješno spremljen!");
+    } catch {
+      toast.error("Greška pri spremanju plana.");
+    }
   };
 
   return (
@@ -137,7 +153,13 @@ Nemoj dodavati ništa osim ovakvog rasporeda i tog jednog rečenog objašnjenja.
           </Tooltip>
 
           {/* Prikaz plana */}
-          <PlanOutput plan={plan} onChange={setPlan} />
+          <PlanOutput
+            plan={plan}
+            onChange={setPlan}
+            onSavePlan={plan && user ? handleSavePlan : undefined}
+            showSaveButton={!!plan && !!user}
+            saveButtonClassName="bg-blue-500 hover:bg-blue-700 text-white"
+          />
         </CardContent>
       </Card>
     </div>
