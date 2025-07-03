@@ -26,6 +26,14 @@ const sections = [
     showButton: true,
   },
   {
+    src: "/trening3.jpg",
+    alt: "Trening",
+    heading: "Dnevnik treninga",
+    button: "Prati napredak",
+    href: "/trening",
+    showButton: true,
+  },
+  {
     src: "/aitrener4.jpg",
     alt: "AI Trener",
     button: "Kreiraj plan",

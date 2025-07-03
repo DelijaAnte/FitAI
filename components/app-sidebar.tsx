@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Dumbbell, Flame, Bot, Gauge } from "lucide-react";
+import { Dumbbell, Flame, Bot, Home, ChartLine } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -28,7 +28,7 @@ const data = {
     {
       title: "Početna",
       url: "/",
-      icon: Gauge,
+      icon: Home,
       isActive: true,
       items: [],
     },
@@ -36,6 +36,12 @@ const data = {
       title: "Vježbe",
       url: "/vjezbe",
       icon: Dumbbell,
+      items: [],
+    },
+    {
+      title: "Praćenje napretka",
+      url: "/trening",
+      icon: ChartLine,
       items: [],
     },
     {
