@@ -53,7 +53,7 @@ function LayoutWrapper({ children }: { children: React.ReactNode }) {
             className="fixed left-2 z-50 flex flex-col items-center"
             style={{ top: "37vh" }}
           >
-            <SidebarTrigger />
+            <SidebarTrigger tooltip="Otvori/zatvori" />
             {/* <div className="mt-4">
               <ModeToggle />
             </div> */}
