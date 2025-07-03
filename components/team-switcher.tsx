@@ -25,19 +25,25 @@ export function TeamSwitcher({
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton
-          size="lg"
-          className="cursor-default select-none"
-          onClick={(e) => e.preventDefault()}
+        <a
+          href="https://github.com/DelijaAnte"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
         >
-          <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-            <activeTeam.logo className="size-4" />
-          </div>
-          <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-medium">{activeTeam.name}</span>
-            <span className="truncate text-xs">{activeTeam.plan}</span>
-          </div>
-        </SidebarMenuButton>
+          <SidebarMenuButton
+            size="lg"
+            className="cursor-pointer select-none hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
+          >
+            <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+              <activeTeam.logo className="size-4" />
+            </div>
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate font-medium">{activeTeam.name}</span>
+              <span className="truncate text-xs">{activeTeam.plan}</span>
+            </div>
+          </SidebarMenuButton>
+        </a>
       </SidebarMenuItem>
     </SidebarMenu>
   );

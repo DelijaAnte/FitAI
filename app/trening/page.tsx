@@ -191,7 +191,7 @@ export default function TrainingLogPage() {
           <div className="space-y-10">
             {days.map((day, dayIdx) => (
               <div key={day.name} className="space-y-4">
-                <h2 className="text-2xl font-bold text-blue-600 mb-2">
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent mb-2">
                   {day.name}
                 </h2>
                 {day.exercises.length === 0 && (
@@ -201,7 +201,7 @@ export default function TrainingLogPage() {
                   {day.exercises.map((ex, exIdx) => (
                     <div key={`${ex.name}-${exIdx}`} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <h3 className="text-xl font-semibold text-blue-700">
+                        <h3 className="text-xl font-semibold text-white">
                           {ex.name}
                         </h3>
                         {ex.rpe && (
