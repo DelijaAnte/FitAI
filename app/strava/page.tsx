@@ -19,7 +19,6 @@ type StravaActivity = {
   description?: string;
 };
 
-// Mapa prijevoda tipova aktivnosti (bez emojija)
 const typeLabels: Record<string, string> = {
   Run: "Trčanje",
   Ride: "Bicikl",

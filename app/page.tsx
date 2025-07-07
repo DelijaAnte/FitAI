@@ -26,7 +26,7 @@ const sections = [
     showButton: true,
   },
   {
-    src: "/trening3.jpg",
+    src: "/trening6.jpg",
     alt: "Trening",
     heading: "Dnevnik treninga",
     button: "Prati napredak",
@@ -34,7 +34,7 @@ const sections = [
     showButton: true,
   },
   {
-    src: "/aitrener4.jpg",
+    src: "/aitrener5.jpg",
     alt: "AI Trener",
     button: "Kreiraj plan",
     heading: "Tvoj AI Trener",
@@ -42,7 +42,7 @@ const sections = [
     showButton: true,
   },
   {
-    src: "/kalorijeslika5.jpg",
+    src: "/kalorijeslika6.jpg",
     alt: "Kalorijski kalkulator",
     button: "Prati prehranu",
     heading: "Kalkulator kalorija",
