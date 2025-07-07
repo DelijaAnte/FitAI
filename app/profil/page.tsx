@@ -2,9 +2,12 @@
 
 import { useAuth } from "../context/auth-context";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
+import { FaStrava } from "react-icons/fa";
+import Link from "next/link";
 
 interface Set {
   weight: string;
@@ -127,7 +130,7 @@ export default function ProfilPage() {
             )}
           </div>
 
-          <div className="bg-zinc-800 p-4 rounded-lg">
+          <div className="bg-zinc-800 p-4 rounded-lg mb-4">
             <h2 className="text-xl font-semibold mb-2 text-blue-400">
               Napredak
             </h2>
@@ -171,6 +174,21 @@ export default function ProfilPage() {
             ) : (
               <p>Nema spremljenog napretka.</p>
             )}
+          </div>
+
+          <div className="bg-zinc-800 p-4 rounded-lg">
+            <h2 className="text-xl font-semibold mb-2 text-blue-400">
+              Strava integracija
+            </h2>
+            <p className="mb-4 text-gray-300">
+              Povežite svoj Strava račun da vidite svoje aktivnosti i napredak
+            </p>
+            <Link href="/strava">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                <FaStrava className="mr-2" />
+                Poveži sa Stravom
+              </Button>
+            </Link>
           </div>
         </CardContent>
       </Card>

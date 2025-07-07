@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronsUpDown, LogOut, User, Settings2 } from "lucide-react";
+import { FaStrava } from "react-icons/fa";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -77,6 +78,12 @@ export function NavUser({
                 <Link href="/profil">
                   <User />
                   Profil
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/strava">
+                  <FaStrava />
+                  Strava
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
