@@ -78,7 +78,7 @@ export default function StravaPage() {
   const handleConnect = () => {
     const params = new URLSearchParams({
       client_id: process.env.NEXT_PUBLIC_STRAVA_CLIENT_ID!,
-      redirect_uri: "http://localhost:3000/api/strava/callback",
+      redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI!,
       response_type: "code",
       scope: "read,activity:read_all",
       approval_prompt: "auto",
