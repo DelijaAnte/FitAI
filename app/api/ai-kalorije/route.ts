@@ -1,4 +1,3 @@
-// app/api/ai-kalorije/route.ts (za app router)
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
