@@ -168,7 +168,7 @@ export default function ProfilPage() {
 
           <div className="bg-zinc-800 p-4 rounded-lg mb-4">
             <h2 className="text-xl font-semibold mb-2 text-blue-400">
-              Trening zapis
+              Trening zapisi
             </h2>
             {progressLoading ? (
               <p>Učitavanje napretka...</p>

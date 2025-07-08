@@ -28,7 +28,7 @@ const sections = [
     showButton: true,
   },
   {
-    src: "/trening6.jpg",
+    src: "/trening7.jpg",
     alt: "Trening",
     heading: "Dnevnik treninga",
     button: "Prati napredak",
@@ -36,7 +36,7 @@ const sections = [
     showButton: true,
   },
   {
-    src: "/aitrener5.jpg",
+    src: "/aitrener6.png",
     alt: "AI Trener",
     button: "Kreiraj plan",
     heading: "Tvoj AI Trener",
