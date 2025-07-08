@@ -7,8 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "../context/auth-context";
 import { db } from "@/lib/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, addDoc, collection } from "firebase/firestore";
 import { toast } from "sonner";
+import Link from "next/link";
 
 interface Exercise {
   name: string;
@@ -130,7 +131,7 @@ export default function TrainingLogPage() {
 
     setSaving(true);
     try {
-      await setDoc(doc(db, "training_logs", user.uid), {
+      await addDoc(collection(db, "training_logs"), {
         days,
         createdAt: new Date().toISOString(),
         userId: user.uid,
@@ -269,6 +270,16 @@ export default function TrainingLogPage() {
           >
             {saving ? "Spremanje..." : "Spremi napredak"}
           </Button>
+          <div className="bg-blue-100 border border-blue-300 text-blue-900 rounded p-4 mt-8 text-center">
+            Za pregled svih zapisanih treninga posjeti{" "}
+            <Link
+              href="/profil"
+              className="underline text-blue-700 hover:text-blue-900"
+            >
+              stranicu profila
+            </Link>
+            .
+          </div>
         </CardContent>
       </Card>
     </div>
